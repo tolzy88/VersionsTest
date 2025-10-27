@@ -15,4 +15,22 @@ jobs:
 
       - uses: dotnet/nbgv@master
         id: nbgv
-      - run: echo "Version=${{ steps.nbgv.outputs.SemVer2 }}"
+
+      - name: Echo all NBGV outputs
+        run: |
+          echo "Version:                      ${{ steps.nbgv.outputs.Version }}"
+          echo "AssemblyVersion:              ${{ steps.nbgv.outputs.AssemblyVersion }}"
+          echo "AssemblyFileVersion:          ${{ steps.nbgv.outputs.AssemblyFileVersion }}"
+          echo "AssemblyInformationalVersion: ${{ steps.nbgv.outputs.AssemblyInformationalVersion }}"
+          echo "SimpleVersion:                ${{ steps.nbgv.outputs.SimpleVersion }}"
+          echo "NuGetPackageVersion:          ${{ steps.nbgv.outputs.NuGetPackageVersion }}"
+          echo "NpmPackageVersion:            ${{ steps.nbgv.outputs.NpmPackageVersion }}"
+          echo "SemVer1:                      ${{ steps.nbgv.outputs.SemVer1 }}"
+          echo "SemVer2:                      ${{ steps.nbgv.outputs.SemVer2 }}"
+          echo "PrereleaseVersion:            ${{ steps.nbgv.outputs.PrereleaseVersion }}"
+          echo "BuildNumber:                  ${{ steps.nbgv.outputs.BuildNumber }}"
+          echo "Height:                       ${{ steps.nbgv.outputs.Height }}"
+          echo "PublicRelease:                ${{ steps.nbgv.outputs.PublicRelease }}"
+          echo "GitCommitId:                  ${{ steps.nbgv.outputs.GitCommitId }}"
+          echo "BuildMetadataFragment:        ${{ steps.nbgv.outputs.BuildMetadataFragment }}"
+
