@@ -1,0 +1,26 @@
+name: GitVersion Lab
+
+on:
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  version-lab:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: GitTools/actions/gitversion/setup@v4
+      - uses: GitTools/actions/gitversion/execute@v4
+        id: gv
+
+      - name: Echo GitVersion outputs
+        run: |
+          echo "FullSemVer:              ${{ steps.gv.outputs.FullSemVer }}"
+          echo "NuGetVersionV2:          ${{ steps.gv.outputs.NuGetVersionV2 }}"
+          echo "CommitsSinceVersionSrc:  ${{ steps.gv.outputs.CommitsSinceVersionSource }}"
+          echo "AssemblySemFileVer:      ${{ steps.gv.outputs.AssemblySemFileVer }}"
+          echo "InformationalVersion:    ${{ steps.gv.outputs.InformationalVersion }}"
