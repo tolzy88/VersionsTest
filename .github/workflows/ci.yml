@@ -13,19 +13,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Debug Working Directory
-        run: |
-          echo "PWD: $(pwd)"
-          ls -la
-
-      - uses: GitTools/actions/gitversion/setup@v4
-      - uses: GitTools/actions/gitversion/execute@v4
-        id: gv
-
-      - name: Echo GitVersion outputs
-        run: |
-          echo "FullSemVer:              ${{ steps.gv.outputs.FullSemVer }}"
-          echo "NuGetVersionV2:          ${{ steps.gv.outputs.NuGetVersionV2 }}"
-          echo "CommitsSinceVersionSrc:  ${{ steps.gv.outputs.CommitsSinceVersionSource }}"
-          echo "AssemblySemFileVer:      ${{ steps.gv.outputs.AssemblySemFileVer }}"
-          echo "InformationalVersion:    ${{ steps.gv.outputs.InformationalVersion }}"
+      - uses: dotnet/nbgv@master
+        id: nbgv
+      - run: echo "Version=${{ steps.nbgv.outputs.SemVer2 }}"
