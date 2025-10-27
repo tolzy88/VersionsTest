@@ -13,6 +13,11 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Debug Working Directory
+        run: |
+          echo "PWD: $(pwd)"
+          ls -la
+
       - uses: GitTools/actions/gitversion/setup@v4
       - uses: GitTools/actions/gitversion/execute@v4
         id: gv
