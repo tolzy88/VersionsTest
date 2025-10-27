@@ -4,7 +4,7 @@ tag-prefix: '[vV]'
 commit-message-incrementing: Disabled
 
 branches:
-  main:
+  master:
     regex: ^(main|master)$
     is-main-branch: true
     increment: Patch
@@ -14,3 +14,4 @@ branches:
 assembly-versioning-format: '{Major}.{Minor}.{Patch}.0'
 assembly-file-versioning-format: '{Major}.{Minor}.{Patch}.{CommitsSinceVersionSource}'
 assembly-informational-format: '{FullSemVer}+{ShortSha}'
+
