@@ -9,9 +9,8 @@ branches:
     is-main-branch: true
     increment: Patch
     label: ci
-    prevent-increment-of-merged-branch-version: true
+    prevent-increment-when-branch-merged: true
 
 assembly-versioning-format: '{Major}.{Minor}.{Patch}.0'
 assembly-file-versioning-format: '{Major}.{Minor}.{Patch}.{CommitsSinceVersionSource}'
 assembly-informational-format: '{FullSemVer}+{ShortSha}'
-
